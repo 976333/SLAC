@@ -4,3 +4,5 @@ token.pickle
 credential_docs.json
 credential_sheet.json
 token_sheet.json
+token_mail.json
+credential_mail.json

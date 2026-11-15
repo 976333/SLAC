@@ -9,8 +9,8 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
 scopes = ["https://www.googleapis.com/auth/gmail.send","https://www.googleapis.com/auth/gmail.modify"]
-credentials_file = "credentials.json"
-token_file = "token.json"
+credentials_file = "credential_mail.json"
+token_file = "token_mail.json"
 search_subject = "Batch-2026"
 header = ["id","name","DD/MM/YYYY","email_id"]
 headers_with_age =header+["age"]
@@ -96,6 +96,7 @@ def send_flow(gmail):
             dob = input("Invalid.DOB(DD/MM/YYYY):").strip()
         email = input(" email_id: ").strip()
         rows.append([emp_id,name,dob,email])
+        break
 
     if not rows:
         print("No data entered.")

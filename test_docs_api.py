@@ -73,8 +73,4 @@ def main(email_body):
   
 if __name__ == "__main__":
   # email_body=getEmails()
-  main(
-  [{'id': '2','name': 'pqr','dob': '22/12/2003','email_id': 'abc@gmail.com','age': '22'},
-   {'id': '1','name': 'pdsv','dob': '02/12/2003','email_id': 'aqwe@gmail.com','age': '33'},
-   {'id': '22','name': 'kjavksjb','dob': '09/12/2003','email_id': 'aqwe@gmail.com','age': '32'},
-   {'id': '','name': 'kjavksjb','dob': '09/12/2003','email_id': '','age': '32'}])
+  main()

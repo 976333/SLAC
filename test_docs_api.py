@@ -5,12 +5,10 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+from config import DOCUMENT_ID # The ID of a sample document.
 
 # If modifying these scopes, delete the file token.json.
 SCOPES=["https://www.googleapis.com/auth/documents"]
-
-# The ID of a sample document.
-DOCUMENT_ID="1nUZlsajgmMTLmfUFgnpgngTzyt-o3rUv8BLyod8YQSc"
 
 def get_service():
   """Shows basic usage of the Docs API.
@@ -42,7 +40,7 @@ def get_service():
   except HttpError as err:
     print(err)
 
-def main(email_body):
+def write_to_docs(email_body):
   if len(email_body)==0:
     return "No data to insert!"
   
@@ -73,4 +71,4 @@ def main(email_body):
   
 if __name__ == "__main__":
   # email_body=getEmails()
-  main()
+  write_to_docs()

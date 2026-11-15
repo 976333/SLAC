@@ -6,3 +6,7 @@ credential_sheet.json
 token_sheet.json
 token_mail.json
 credential_mail.json
+config.py
+credential_drive.json
+token_drive.pickle
+__pycache__

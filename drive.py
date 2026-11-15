@@ -7,7 +7,8 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from googleapiclient.errors import HttpError
 
-from config import DOC_ID, SHEET_ID
+from config import SPREADSHEET_ID as SHEET_ID
+from config import DOCUMENT_ID as DOC_ID
 
 
 # Scope for Google Drive access
@@ -18,9 +19,9 @@ def get_gdrive_service():
 
     creds = None
 
-    if os.path.exists('token.pickle'):
+    if os.path.exists('token_drive.pickle'):
 
-        with open('token.pickle', 'rb') as file:
+        with open('token_drive.pickle', 'rb') as file:
             creds = pickle.load(file)
 
     if not creds or not creds.valid:
@@ -30,12 +31,12 @@ def get_gdrive_service():
 
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES
+                'credential_drive.json', SCOPES
             )
 
             creds = flow.run_local_server(port=0)
 
-        with open('token.pickle', 'wb') as token:
+        with open('token_drive.pickle', 'wb') as token:
             pickle.dump(creds, token)
 
     service = build('drive', 'v3', credentials=creds)
@@ -74,7 +75,7 @@ def copy_drive_file(service, file_id, new_file_name):
 
 
 # Step 3: Main Function
-def main():
+def main_drive():
 
     try:
 
@@ -104,5 +105,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main_drive()
   

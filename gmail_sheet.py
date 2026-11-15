@@ -5,6 +5,7 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+from config import SPREADSHEET_ID
  
  
  
@@ -12,7 +13,6 @@ SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
  
  
 # the id of the sheet you want to access
-SPREADSHEET_ID ="1BhEtjWktx3ypTdMclMNWH_YsHUGED7qprOxlwuwZgII"
 RANGE_NAME = "Sheet1!A2:D"
  
 def get_creds():
@@ -52,20 +52,9 @@ def write_in_sheet(value_input_option):
  
       # fetch the list of dectionary
     #   data = suraj_function()
-        data=[{
-        "id":"2",
-        "name":"chaitanya",
-        "dob":"20-12-2004",
-        "email":"dusane7263@gmail.com",
-        "age":"23"
-        },
-        {
-        "id":"3",
-        "name":"akhilesh",
-        "dob":"07-06-2004",
-        "email":"akhileshi7263@gmail.com",
-        "age":"62"
-        }]
+        data=value_input_option
+        if not data:
+           return "No Data to insert" #leelansh added this part of code 
  
  
         headers = ["id", "name", "dob", "email","age"]

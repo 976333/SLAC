@@ -204,7 +204,7 @@ def retrieve_flow(gmail):
         mark_as_read(gmail, mails)
         print("Marked as read")
 
-def main():
+def main_mail():
     gmail = get_gmail_service()
     while True:
         print("1.send employee table email")
@@ -224,7 +224,7 @@ def main():
             print(f"Error: {e}")
 
 
-main()
+main_mail()
 
 # data = get_data()      # returns the list of dictionaries(nothing print)
 # print_data(data)     # prints it list of dictionary
